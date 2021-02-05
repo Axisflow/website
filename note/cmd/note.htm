@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <title>My Note</title>
+    <script language="JavaScript" type="text/javascript" src="..\shared_former.js">var noteNum = 1;</script>
+    <link rel="stylesheet" type="text/css" href="..\shared.css" />
+</head>
+<body>
+    <p>1.</p>
+    <script>
+        function readTextFile(file) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4) {
+                    if (rawFile.status === 200 || rawFile.status == 0) {
+                        var splitResponse = rawFile.responseText.split("\n");
+                        for (index = 0; index < splitResponse.length; index++) {
+                            window.open(splitResponse[index]);
+                        }
+
+
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+        readTextFile("./note.htm");
+    </script>
+    <script language="JavaScript" type="text/javascript" src="..\shared_latter.js"></script>
+</body>
+</html>
