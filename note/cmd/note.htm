@@ -18,7 +18,7 @@
                     if (rawFile.status === 200 || rawFile.status == 0) {
                         var splitResponse = rawFile.responseText.split("\n");
                         for (index = 0; index < splitResponse.length; index++) {
-                            window.open(splitResponse[index]);
+                            document.getElementsbyTagName('body')[0].innerHTML += splitResponse[index];
                         }
 
 
