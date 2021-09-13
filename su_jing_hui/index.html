@@ -5,37 +5,65 @@
     <link rel="Shortcut Icon" type="image/x-icon" href="axialflow.ico" />
 </head>
 <body style="display: flex; align-items: center; justify-content: center;">
-    <div style="border-radius:5px;border-color:rgb(32,32,32);border-width:2.5px;border-style:double;background-color:rgb(224,224,224);"><p style="margin:16px;">請輸入驗證碼（Pass CODE）: <input id="pwd" type="password" /><button onclick="enter()">GO!</button></p></div>
-    <div id="show" style="display: none;position:fixed; background-color: rgb(151 220 255); height: 0; width: 0; border-radius: 0;border-style:dotted;border-color:rgb(200 147 64);" />
+    <div id="login" style="border-radius:5px;border-color:rgb(32,32,32);border-width:2.5px;border-style:double;background-color:rgb(224,224,224);"><p style="margin:16px;">請輸入驗證碼（Pass CODE）: <input autofocus id="pwd" type="password" value="i_love_you" /><button onclick="enter()">GO!</button></p></div>
+    <div id="show" style="display: none;position:fixed; background-color: rgb(151 220 255); height: 0; width: 0; border-radius: 0;border-width:2px; border-style:dotted;border-color:rgb(200 147 64);"></div>
+    <div id="final" style="display: none;position:fixed; background-color: rgb(32 32 32); height: 100%; width: 100%;"></div>
     <script type="text/javascript">
         function enter() {
             if (document.getElementById('pwd').value == "i_love_you") {
-                document.getElementById('show').classList += "dot-circle";
-                document.getElementById('show').style.display = "block";
+                var show = document.getElementById('show');
+                show.style.display = "block";
+                show.classList += "dot-circle";
+                setTimeout("show_Card()", 1000);
             }
+        }
+        function show_Card() {
+            document.getElementsByTagName('html')[0].style.backgroundColor = "rgb(239 221 135)";
+            setTimeout("document.getElementById('final').style.display = \"block\";document.getElementById('final').classList += \"opacity-down\"", 1000);
+            setTimeout("document.getElementById('final').style.display = \"none\";document.getElementById('show').style.display = \"none\";document.getElementById('login').style.display = \"none\";", 2000);
         }
     </script>
     <style type="text/css">
-        .dot-circle{
-            animation: bigger-black 1.5s linear both;
-            
+        .dot-circle {
+            animation: bigger-black 1s linear forwards;
         }
-        @keyframes bigger-black{
-            20%{
-                height:10%;
-                width:10%;
-                border-radius:10%;
+
+        @keyframes bigger-black {
+            20% {
+                height: 10%;
+                width: 10%;
+                border-radius: 20%;
             }
+
             80% {
                 background-color: rgb(151 220 255);
             }
+
             100% {
                 height: 150%;
                 width: 150%;
                 border-radius: 75%;
-                border-color:rgb(32 32 32);
+                border-color: rgb(32 32 32);
+                background-color: rgb(32 32 32);
+                transform: rotate(180deg);
+            }
+        }
+
+        .opacity-down {
+            animation: down-opacity 1s linear forwards;
+        }
+
+        @keyframes down-opacity {
+            0% {
                 background-color: rgb(32 32 32);
             }
+
+            100% {
+                background-color: rgb(239 221 135);
+            }
+        }
+
+        .show_Card {
         }
     </style>
 </body>
