@@ -6,7 +6,7 @@
 </head>
 <body style="display: flex; align-items: center; justify-content: center;">
     <div style="border-radius:5px;border-color:rgb(32,32,32);border-width:2.5px;border-style:double;background-color:rgb(224,224,224);"><p style="margin:16px;">請輸入驗證碼（Pass CODE）: <input id="pwd" type="password" /><button onclick="enter()">GO!</button></p></div>
-    <div id="show" style="display: none;position:fixed; background-color: rgb(151 220 255); height: 0; width: 0; border-radius: 0;" />
+    <div id="show" style="display: none;position:fixed; background-color: rgb(151 220 255); height: 0; width: 0; border-radius: 0;border-style:dotted;border-color:rgb(200 147 64);" />
     <script type="text/javascript">
         function enter() {
             if (document.getElementById('pwd').value == "i_love_you") {
@@ -24,7 +24,7 @@
             20%{
                 height:10%;
                 width:10%;
-                border-radius:5%;
+                border-radius:10%;
             }
             80% {
                 background-color: rgb(151 220 255);
@@ -33,6 +33,7 @@
                 height: 150%;
                 width: 150%;
                 border-radius: 75%;
+                border-color:rgb(32 32 32);
                 background-color: rgb(32 32 32);
             }
         }
