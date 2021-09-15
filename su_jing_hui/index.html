@@ -14,18 +14,12 @@
                 var show = document.getElementById('show');
                 show.style.display = "block";
                 show.classList += "dot-circle";
-                setTimeout("show_Card()", 1000);
             }
-        }
-        function show_Card() {
-            document.getElementsByTagName('html')[0].style.backgroundColor = "rgb(245 219 188)";
-            setTimeout("document.getElementById('final').style.display = \"block\";document.getElementById('final').classList += \"opacity-down\"", 1000);
-            setTimeout("document.getElementById('final').style.display = \"none\";document.getElementById('show').style.display = \"none\";document.getElementById('login').style.display = \"none\";", 2000);
         }
     </script>
     <style type="text/css">
         .dot-circle {
-            animation: bigger-black 1s linear forwards;
+            animation: bigger-black 1s ease-out forwards;
         }
 
         @keyframes bigger-black {
@@ -47,23 +41,6 @@
                 background-color: rgb(32 32 32);
                 transform: rotate(180deg);
             }
-        }
-
-        .opacity-down {
-            animation: down-opacity 1s linear forwards;
-        }
-
-        @keyframes down-opacity {
-            0% {
-                background-color: rgb(32 32 32);
-            }
-
-            100% {
-                background-color: rgb(245 219 188);
-            }
-        }
-
-        .show_Card {
         }
     </style>
 </body>
