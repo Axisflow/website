@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; text-align: center;">
+<head>
+    <meta charset="utf-8" />
+    <title>Coupled Pendulums</title>
+    <style>
+        p{
+            margin: 0;
+        }
+        #title{
+            font-size:5vmin;
+        }
+    </style>
+    <script type="text/javascript">
+        title = {
+            '1-1': "Part 1 異性電",
+            '1-2': "Part 1 同性電",
+            '2-a-1': "Part 2 異性電",
+            '2-a-2': "Part 2 同性電",
+            '2-b-1': "Part 2 異性電 電力加強",
+            '2-b-2': "Part 2 同性電 電力加強",
+            '2-c-1': "Part 2 異性電 接近180度",
+            '2-c-2': "Part 2 同性電 接近180度",
+            '2-c-3': "Part 2 異性電 電力加強 接近180度",
+            '2-c-4': "Part 2 同性電 電力加強 接近180度"
+        }
+        ani = {
+            '1-1': "1-1",
+            '1-2': "1-2",
+            '2-a-1': "2-a-1",
+            '2-a-2': "2-a-2",
+            '2-b-1': "2-b-1",
+            '2-b-2': "2-b-2",
+            '2-c-1': "2-c-1",
+            '2-c-2': "2-c-2",
+            '2-c-3': "2-c-3",
+            '2-c-4': "2-c-4"
+        }
+        theta = {
+            '1-1': "1-1",
+            '1-2': "1-2",
+            '2-a-1': "2-a-1",
+            '2-a-2': "2-a-2",
+            '2-b-1': "2-b-1",
+            '2-b-2': "2-b-2",
+            '2-c-1': "2-c-1",
+            '2-c-2': "2-c-2",
+            '2-c-3': "2-c-3",
+            '2-c-4': "2-c-4"
+        }
+        eng = {
+            '1-1': "1-1",
+            '1-2': "1-2",
+            '2-a-1': "2-a-1",
+            '2-a-2': "2-a-2",
+            '2-b-1': "2-b-1",
+            '2-b-2': "2-b-2",
+            '2-c-1': "2-c-1",
+            '2-c-2': "2-c-2",
+            '2-c-3': "2-c-3",
+            '2-c-4': "2-c-4"
+        }
+
+        function relocate() {
+            var par = "", record = false;
+            for (var i = 0; i < location.href.length; i++) {
+                if (record == true) {
+                    par += location.href[i];
+                }
+                if (location.href[i] == '#') {
+                    record = true;
+                }
+            }
+
+            show(par);
+        }
+
+        function show(par) {
+            document.getElementById('title').innerHTML = title[par];
+            document.getElementById('ani').src = ani[par] + ".gif";
+            document.getElementById('theta').src = theta[par] + "t.png";
+            document.getElementById('eng').src = eng[par] + "e.png";
+        }
+    </script>
+</head>
+<body onload="relocate()" style="display:flex; flex-direction:column; align-items:center; justify-content:center;height:inherit;margin:0;">
+    <main style="width:100%;">
+        <p id="title"></p>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;">
+            <figure>
+                <img id="ani" src=""/>
+                <figcaption>單擺動畫</figcaption>
+            </figure>
+            <figure>
+                <img id="theta" src=""/>
+                <figcaption>角度變化</figcaption>
+            </figure>
+            <figure>
+                <img id="eng" src=""/>
+                <figcaption>能量圖</figcaption>
+            </figure>
+        </div>
+    </main>
+</body>
+</html>
